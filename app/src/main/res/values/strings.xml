@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PopularLibrary</string>
+    <string name="enter_text">enter text</string>
+    <string name="concatenation">Concatenation</string>
+</resources>

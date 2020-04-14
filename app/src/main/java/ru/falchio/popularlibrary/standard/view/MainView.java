@@ -2,7 +2,7 @@ package ru.falchio.popularlibrary.standard.view;
 
 import android.view.View;
 
-public interface Concatenate {
+public interface MainView {
 
     void buttonClick(View view);
 }

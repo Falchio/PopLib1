@@ -1,14 +1,14 @@
 package ru.falchio.popularlibrary.standard.presenter;
 
 import ru.falchio.popularlibrary.standard.model.Model;
-import ru.falchio.popularlibrary.standard.view.Concatenate;
+import ru.falchio.popularlibrary.standard.view.MainView;
 
 
 public class Presenter {
-    private final Concatenate mainActivity;
+    private final MainView mainActivity;
     private final Model model;
 
-    public Presenter(Concatenate mainActivity) {
+    public Presenter(MainView mainActivity) {
         this.mainActivity=mainActivity;
         this.model=new Model();
     }

@@ -1,21 +1,25 @@
-package ru.falchio.popularlibrary.standard.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package ru.falchio.popularlibrary.moxy.view;
 
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import moxy.presenter.InjectPresenter;
 import ru.falchio.popularlibrary.R;
-import ru.falchio.popularlibrary.standard.presenter.Presenter;
+import ru.falchio.popularlibrary.moxy.presenter.Presenter;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    private Presenter presenter;
+    private String TAG = this.getClass().getSimpleName();
     private EditText editText;
     private TextView textView;
     private Button button;
+
+    @InjectPresenter
+    Presenter presenter;
 
 
 
@@ -29,10 +33,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         button = findViewById(R.id.button);
     }
 
-    public void buttonClick(View view) {
-       String txt = presenter.onButtonClick(editText.getText().toString());
+    public void buttonClick(android.view.View view) {
+        if (editText.getText().equals("")){return;}
+        Log.e(TAG, "buttonClick: " + editText.getText().toString());
+        presenter.onButtonClick(editText.getText().toString());
         editText.getText().clear();
-        textView.setText(txt);
+
+    }
+
+    public void setTextView(String txt){
+        Log.e(TAG, "setTextView: "+txt);
+        this.textView.setText(txt);
     }
 
     public EditText getEditText() {

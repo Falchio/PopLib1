@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements Concatenate {
     private Presenter presenter;
     private EditText editText;
     private TextView textView;
+    private Button button;
 
 
 
@@ -22,15 +23,16 @@ public class MainActivity extends AppCompatActivity implements Concatenate {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button button = findViewById(R.id.button);
         editText = findViewById(R.id.edit_text);
         textView = findViewById(R.id.text_field);
         presenter = new Presenter(this);
+        button = findViewById(R.id.button);
     }
 
     public void buttonClick(View view) {
-        presenter.onButtonClick();
+       String txt = presenter.onButtonClick(editText.getText().toString());
+        editText.getText().clear();
+        textView.setText(txt);
     }
 
     public EditText getEditText() {

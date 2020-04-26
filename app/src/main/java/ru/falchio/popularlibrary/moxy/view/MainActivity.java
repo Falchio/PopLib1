@@ -2,17 +2,18 @@ package ru.falchio.popularlibrary.moxy.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import moxy.MvpAppCompatActivity;
 import moxy.presenter.InjectPresenter;
 import ru.falchio.popularlibrary.R;
 import ru.falchio.popularlibrary.moxy.presenter.Presenter;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends MvpAppCompatActivity implements MainView {
     private String TAG = this.getClass().getSimpleName();
     private EditText editText;
     private TextView textView;
@@ -29,16 +30,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
         editText = findViewById(R.id.edit_text);
         textView = findViewById(R.id.text_field);
-        presenter = new Presenter(this);
+//        presenter = new Presenter(this);
         button = findViewById(R.id.button);
     }
 
-    public void buttonClick(android.view.View view) {
+    public void buttonClick(View view1) {
         if (editText.getText().equals("")){return;}
-        Log.e(TAG, "buttonClick: " + editText.getText().toString());
+        Log.e(TAG, "buttonClick:////// " + presenter );
         presenter.onButtonClick(editText.getText().toString());
         editText.getText().clear();
-
     }
 
     public void setTextView(String txt){

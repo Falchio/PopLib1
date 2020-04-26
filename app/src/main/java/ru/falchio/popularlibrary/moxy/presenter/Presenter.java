@@ -10,11 +10,9 @@ import ru.falchio.popularlibrary.moxy.view.MainView;
 @InjectViewState
 public class Presenter extends MvpPresenter<MainView> {
     private String TAG = this.getClass().getSimpleName();
-    private final MainView mainActivity;
     private final Model model;
 
-    public Presenter(MainView mainActivity) {
-        this.mainActivity=mainActivity;
+    public Presenter() {
         this.model=new Model();
     }
 
